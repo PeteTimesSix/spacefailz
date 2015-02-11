@@ -9,12 +9,12 @@ using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Input;
 
-namespace Examples
+namespace logic
 {
 
-    public class FullscreenAntialias : GameWindow
+    public class ThisGameWindow : GameWindow
     {
-        public FullscreenAntialias()
+        public ThisGameWindow()
             : base(800, 600, new GraphicsMode(32, 0, 0, 4))
         {
             KeyDown += Keyboard_KeyDown;
@@ -83,18 +83,18 @@ namespace Examples
         /// <remarks>There is no need to call the base implementation.</remarks>
         protected override void OnUpdateFrame(FrameEventArgs e)
         {
-            foreach (LogicObject logicObject in activeScene.getLogicObjects())
-            {
-                logicObject.updateSelf();
-            }
-            foreach (LogicObject logicObject in activeScene.getLogicObjects())
-            {
-                if(logicObject.dead()) activeScene.remove(logicObject);
-            }
-            foreach (ParticleSystem system in activeScene.getParticleSystems())
-            {
-                activeScene.addParticles(system.getNewParticles());
-            }
+            //foreach (LogicObject logicObject in activeScene.getLogicObjects())
+            //{
+            //    logicObject.updateSelf();
+            //}
+            //foreach (LogicObject logicObject in activeScene.getLogicObjects())
+            //{
+            //    if(logicObject.dead()) activeScene.remove(logicObject);
+            //}
+            //foreach (ParticleSystem system in activeScene.getParticleSystems())
+            //{
+            //    activeScene.addParticles(system.getNewParticles());
+            //}
         }
 
         #endregion
@@ -110,15 +110,14 @@ namespace Examples
         {
             GL.Clear(ClearBufferMask.ColorBufferBit);
 
-            foreach (Renderable renderable in activeScene.getRenderables()) 
-            {
-                renderable.renderSelf();
-            }
-
-            foreach (Particle particle in activeScene.getParticles())
-            {
-                particle.getRenderable().renderSelf();
-            }
+            //foreach (Renderable renderable in activeScene.getRenderables()) 
+            //{
+            //    renderable.renderSelf();
+            //}
+            //foreach (Particle particle in activeScene.getParticles())
+            //{
+            //    particle.getRenderable().renderSelf();
+            //}
             GL.Begin(PrimitiveType.Triangles);
             
             GL.Color4(Color4.AliceBlue);
@@ -131,22 +130,6 @@ namespace Examples
             GL.End();
 
             this.SwapBuffers();
-        }
-
-        #endregion
-
-        #region public static void Main()
-
-        /// <summary>
-        /// Entry point of this example.
-        /// </summary>
-        [STAThread]
-        public static void Main()
-        {
-            using (FullscreenAntialias example = new FullscreenAntialias())
-            {
-                example.Run(30.0, 30.0);
-            }
         }
 
         #endregion
