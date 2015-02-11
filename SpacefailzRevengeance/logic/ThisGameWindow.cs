@@ -9,11 +9,18 @@ using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Input;
 
+using dataSimple;
+using dataComplex;
+
+
 namespace logic
 {
 
     public class ThisGameWindow : GameWindow
     {
+
+        private IGameScene activeScene;
+
         public ThisGameWindow()
             : base(800, 600, new GraphicsMode(32, 0, 0, 4))
         {
@@ -83,11 +90,18 @@ namespace logic
         /// <remarks>There is no need to call the base implementation.</remarks>
         protected override void OnUpdateFrame(FrameEventArgs e)
         {
-            //foreach (LogicObject logicObject in activeScene.getLogicObjects())
+            IGameScene returnScene = activeScene.updateSelf();
+            if (returnScene != activeScene)
+            {
+                activeScene = returnScene;
+                activeScene.launch();
+            }
+            
+            //foreach (ILogicObject logicObject in activeScene.getLogicObjects())
             //{
             //    logicObject.updateSelf();
             //}
-            //foreach (LogicObject logicObject in activeScene.getLogicObjects())
+            //foreach (ILogicObject logicObject in activeScene.getLogicObjects())
             //{
             //    if(logicObject.dead()) activeScene.remove(logicObject);
             //}
@@ -110,13 +124,9 @@ namespace logic
         {
             GL.Clear(ClearBufferMask.ColorBufferBit);
 
-            //foreach (Renderable renderable in activeScene.getRenderables()) 
+            //foreach (IRenderable renderable in activeScene.getRenderables()) 
             //{
             //    renderable.renderSelf();
-            //}
-            //foreach (Particle particle in activeScene.getParticles())
-            //{
-            //    particle.getRenderable().renderSelf();
             //}
             GL.Begin(PrimitiveType.Triangles);
             
