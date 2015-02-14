@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="dataComplex\BaseGameScene.cs" />
     <Compile Include="dataComplex\IngameScene.cs" />
+    <Compile Include="dataSimple\IGameObject.cs" />
     <Compile Include="logic\ThisGameWindow.cs" />
     <Compile Include="dataComplex\IGameScene.cs" />
     <Compile Include="Entry.cs" />
@@ -61,7 +62,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="dataSimple\" />
     <Folder Include="util\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
