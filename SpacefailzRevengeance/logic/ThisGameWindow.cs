@@ -21,10 +21,13 @@ namespace logic
 
         private IGameScene activeScene;
 
-        public ThisGameWindow()
+        public ThisGameWindow(IGameScene initialScene)
             : base(800, 600, new GraphicsMode(32, 0, 0, 4))
         {
             KeyDown += Keyboard_KeyDown;
+
+            this.activeScene = initialScene;
+            initialScene.launch();
         }
 
         #region Keyboard_KeyDown

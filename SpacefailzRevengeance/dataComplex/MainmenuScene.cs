@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace dataComplex
 {
-    public interface IGameScene
+    public class MainmenuScene : BaseGameScene
     {
-
-        IGameScene updateSelf();
-        void launch();
-
     }
 }

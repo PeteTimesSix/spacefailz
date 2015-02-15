@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace dataComplex
 {
-    class BaseGameScene
+    public class BaseGameScene : IGameScene
     {
+        public IGameScene updateSelf()
+        {
+            return this;
+        }
+
+        public void launch()
+        {
+            
+        }
     }
 }

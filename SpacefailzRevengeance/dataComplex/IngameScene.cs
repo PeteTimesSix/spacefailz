@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace dataComplex
 {
-    class IngameScene : BaseGameScene
+    public class IngameScene : BaseGameScene
     {
     }
 }

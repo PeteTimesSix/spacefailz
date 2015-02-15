@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using logic;
 
+using dataComplex;
+
 
 class Entry
 {
@@ -17,7 +19,8 @@ class Entry
     [STAThread]
     public static void Main()
     {
-        using (ThisGameWindow game = new ThisGameWindow())
+        MainmenuScene mainmenu = new MainmenuScene();
+        using (ThisGameWindow game = new ThisGameWindow(mainmenu))
         {
             game.Run(30.0, 30.0);
         }

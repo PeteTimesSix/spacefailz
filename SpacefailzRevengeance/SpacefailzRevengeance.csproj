@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dataComplex\BaseGameScene.cs" />
+    <Compile Include="dataComplex\MainmenuScene.cs" />
     <Compile Include="dataComplex\IngameScene.cs" />
     <Compile Include="dataSimple\IGameObject.cs" />
     <Compile Include="logic\ThisGameWindow.cs" />

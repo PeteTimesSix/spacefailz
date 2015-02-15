@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace dataSimple
 {
-    interface IGameObject
+    public interface IGameObject
     {
 
-        public void renderSelf();
-        public void updateSelf();
+        void renderSelf();
+        void updateSelf();
 
-        public Boolean isGoingToDie();
-        public void prepareToDie();
-        public void die();
+        Boolean isGoingToDie();
+        void prepareToDie();
+        void die();
 
     }
 }
